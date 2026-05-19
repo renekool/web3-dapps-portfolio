@@ -1,6 +1,7 @@
 {
   "name": "document-sign-storage",
   "version": "1.0.0",
+  "description": "A Web3 platform to digitally sign and verify documents with secure decentralized storage on IPFS.",
   "private": true,
   "scripts": {
     "predev": "cd ../contract && forge script script/Deploy.s.sol --rpc-url http://127.0.0.1:8546 --broadcast || echo 'Skipped local deploy'",
