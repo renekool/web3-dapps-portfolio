@@ -119,7 +119,7 @@ The system uses **EIP-712 typed data signatures** and a **relayer network** to e
 ## Project Structure
 
 ```
-doing/02-dao-gasless-voting-doing/
+02-dao-gasless-voting/
 ├── contracts/                    # Smart contract source code
 │   ├── src/
 │   │   ├── DAOVoting.sol         # Main governance contract
@@ -427,7 +427,7 @@ Proposal fails if:
 #### 1. Clone and Navigate
 
 ```bash
-cd /home/rene/web3-dev/doing/02-dao-gasless-voting-doing
+cd /home/rene/web3-dev/web3-dapps-portfolio/02-dao-gasless-voting
 ```
 
 #### 2. Install Dependencies

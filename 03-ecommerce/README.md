@@ -21,7 +21,7 @@ Sistema de comercio electrónico descentralizado construido en Ethereum, que uti
 ## 📁 Estructura del Proyecto
 
 ```
-doing/03-ecommerce-doing/
+03-ecommerce/
 ├── stablecoin/               # Token EuroToken (EURT) y landing de compra
 │   ├── sc/eurotoken/         # Smart contract EURT (ERC20)
 │   │   ├── src/EuroToken.sol

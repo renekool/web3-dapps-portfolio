@@ -1,5 +1,5 @@
 #!/bin/bash
-BASE_DIR="/home/rene/web3-dev/doing/03-ecommerce-doing"
+BASE_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 EURO_TOKEN_ADDR="0x5FbDB2315678afecb367f032d93F642f64180aa3"
 ECOMM_ADDR="0xe7f1725E7734CE288F8367e1Bb143E90bb3F0512"
 ANVIL_RPC="http://localhost:8545"

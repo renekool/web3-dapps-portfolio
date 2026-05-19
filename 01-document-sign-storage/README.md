@@ -228,7 +228,7 @@ The complete workflow from document upload to verification:
 ## Project Structure
 
 ```
-01-document-sign-storage-doing/
+01-document-sign-storage/
 │
 ├── contract/                    # Smart contract codebase
 │   ├── src/
@@ -505,7 +505,7 @@ The following enhancements are potential directions for future development:
 
 ```bash
 # Clone the repository
-cd 01-document-sign-storage-doing
+cd 01-document-sign-storage
 
 # Install contract dependencies
 cd contract

@@ -23,7 +23,7 @@ DApp de intercambio P2P de tokens ERC20 donde el contrato actúa como **custodio
 ## 📁 Estructura del Proyecto
 
 ```
-04-escrow-doing/
+04-escrow/
 ├── sc/                              # Smart contracts (Foundry)
 │   ├── src/
 │   │   ├── Escrow.sol               # Contrato principal

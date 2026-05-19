@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # ==============================================================================
-# ORCHESTRATOR: RESTART ALL SYSTEM (DOING)
+# ORCHESTRATOR: RESTART ALL SYSTEM
 # ==============================================================================
 # Automatiza el levantamiento del ecosistema Ecommerce Web3 completo.
 # ==============================================================================
@@ -16,7 +16,7 @@ BLUE='\033[0;34m'
 NC='\033[0m'
 
 # Configuración
-BASE_DIR="/home/rene/web3-dev/doing/03-ecommerce-doing"
+BASE_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 ANVIL_RPC="http://localhost:8545"
 PRIVATE_KEY="0xac0974bec39a17e36ba4a6b4d238ff944bacb478cbed5efcae784d7bf4f2ff80"
 

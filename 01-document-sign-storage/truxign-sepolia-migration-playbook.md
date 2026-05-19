@@ -136,7 +136,7 @@ El objetivo no es rehacer el producto, sino adaptar su capa de ejecución para q
 El siguiente proyecto **NO se modifica bajo ninguna circunstancia**:
 
 ```text
-/home/rene/web3-dev/doing/01-document-sign-storage-doing
+/home/rene/web3-dev/01-document-sign-storage
 ```
 
 Este proyecto queda congelado como:
@@ -153,13 +153,13 @@ Este proyecto queda congelado como:
 ### Proyecto original (solo lectura)
 
 ```text
-01-document-sign-storage-doing
+01-document-sign-storage
 ```
 
 ### Proyecto de migración (único editable)
 
 ```text
-01-document-sign-storage-sepolia-doing
+01-document-sign-storage-sepolia
 ```
 
 ---
@@ -240,16 +240,16 @@ Lograr que TruXign funcione en **Sepolia** con:
 **Responsable:** Antigravity  
 
 **Acciones realizadas:**
-- Verificación de la existencia del proyecto base (`01-document-sign-storage-doing`).
+- Verificación de la existencia del proyecto base (`01-document-sign-storage`).
 - Inspección del estado de Git en el proyecto original para asegurar un baseline limpio y estable.
 - Confirmación de la rama base (`main`) sin cambios pendientes.
-- Validación del entorno de trabajo actual (`01-document-sign-storage-sepolia-doing`).
+- Validación del entorno de trabajo actual (`01-document-sign-storage-sepolia`).
 
 **Comandos ejecutados:**
 ```bash
-ls -la /home/rene/web3-dev/doing/01-document-sign-storage-doing
-git -C /home/rene/web3-dev/doing/01-document-sign-storage-doing status
-ls -la /home/rene/web3-dev/doing/01-document-sign-storage-sepolia-doing
+ls -la /home/rene/web3-dev/01-document-sign-storage
+git -C /home/rene/web3-dev/01-document-sign-storage status
+ls -la /home/rene/web3-dev/01-document-sign-storage-sepolia
 ```
 
 **Archivos modificados:**
@@ -280,13 +280,13 @@ ls -la /home/rene/web3-dev/doing/01-document-sign-storage-sepolia-doing
 1. Crear copia del proyecto:
 
 ```bash
-cp -r 01-document-sign-storage-doing 01-document-sign-storage-sepolia-doing
+cp -r 01-document-sign-storage 01-document-sign-storage-sepolia
 ```
 
 2. Entrar al nuevo proyecto:
 
 ```bash
-cd 01-document-sign-storage-sepolia-doing
+cd 01-document-sign-storage-sepolia
 ```
 
 3. Inicializar/controlar Git:
@@ -319,19 +319,19 @@ A partir de aquí, **solo se trabaja en esta copia**.
 **Responsable:** Antigravity  
 
 **Acciones realizadas:**
-- Copia recursiva de todos los archivos (incluyendo archivos ocultos y configuración de Git) del proyecto base `01-document-sign-storage-doing`.
+- Copia recursiva de todos los archivos (incluyendo archivos ocultos y configuración de Git) del proyecto base `01-document-sign-storage`.
 - Creación y cambio inmediato a la rama de trabajo `sepolia-migration`.
 - Verificación de la integridad de la copia.
 
 **Comandos ejecutados:**
 ```bash
-cp -r ../01-document-sign-storage-doing/. .
+cp -r ../01-document-sign-storage/. .
 git checkout -b sepolia-migration
 ls -la
 ```
 
 **Archivos modificados:**
-- Directorio de trabajo `01-document-sign-storage-sepolia-doing` (clonado inicial).
+- Directorio de trabajo `01-document-sign-storage-sepolia` (clonado inicial).
 - `truxign-sepolia-migration-playbook.md` (Documentación de Fase 1).
 
 **Decisiones tomadas:**
@@ -396,7 +396,7 @@ git push -u origin sepolia-migration
 
 **Estado final:**
 - BASELINE VALIDADO Y RESPALDADO EN REMOTO.
-- El proyecto en `/home/rene/web3-dev/doing/01-document-sign-storage-sepolia-doing` es una copia fiel y funcional del original.
+- El proyecto en `/home/rene/web3-dev/01-document-sign-storage-sepolia` es una copia fiel y funcional del original.
 
 ---
 
@@ -519,7 +519,7 @@ Antes de tocar código, se debe dejar claro en specs:
 ## 📂 Ruta crítica de specs
 
 ```text
-/home/rene/web3-dev/doing/01-document-sign-storage-sepolia-doing/governance
+/home/rene/web3-dev/01-document-sign-storage-sepolia/governance
 ```
 
 ---
@@ -971,13 +971,13 @@ docs: update migration specs for sepolia
 ## A. Proyecto original intacto
 
 ```text
-01-document-sign-storage-doing
+01-document-sign-storage
 ```
 
 ## B. Proyecto de trabajo funcional
 
 ```text
-01-document-sign-storage-sepolia-doing
+01-document-sign-storage-sepolia
 ```
 
 ## C. Rama activa de migración
