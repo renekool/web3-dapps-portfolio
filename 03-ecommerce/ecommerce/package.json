@@ -1,7 +1,7 @@
 {
   "name": "ecommerce",
   "version": "1.0.0",
-  "description": "Decentralized e-commerce with a stable EuroToken payment gateway and automated smart contract refunds.",
+  "description": "Decentralized e-commerce shop integrated with an automated ERC20 stablecoin payment gateway.",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"

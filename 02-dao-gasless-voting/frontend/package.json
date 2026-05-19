@@ -1,7 +1,7 @@
 {
   "name": "ai-studio-applet",
   "version": "0.1.0",
-  "description": "A DAO governance system enabling gasless voting via EIP-712 cryptographic signatures and relayers.",
+  "description": "Gasless DAO governance platform utilizing EIP-712 cryptographic signatures and meta-transaction relayers.",
   "private": true,
   "scripts": {
     "dev": "next dev",

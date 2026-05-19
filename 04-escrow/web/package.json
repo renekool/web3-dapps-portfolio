@@ -1,7 +1,7 @@
 {
   "name": "vaultline-escrow-web",
   "version": "0.1.0",
-  "description": "A secure P2P decentralized escrow contract facilitating trustless ERC20 token swaps with fee sharing.",
+  "description": "Trustless peer-to-peer ERC20 token escrow exchange with automated fee-sharing smart contracts.",
   "private": true,
   "scripts": {
     "dev": "next dev",

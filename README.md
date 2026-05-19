@@ -8,26 +8,26 @@ A curated collection of production-grade decentralized applications (DApps) show
 
 ### 1. TruXign — Document Sign & Storage DApp
 * **Folder:** [`01-document-sign-storage`](file:///home/rene/web3-dev/web3-dapps-portfolio/01-document-sign-storage)
-* **English:** A Web3 platform to digitally sign and verify documents with secure decentralized storage on IPFS.
-* **Español:** Plataforma Web3 para firmar y verificar documentos digitalmente con almacenamiento descentralizado seguro en IPFS.
+* **English:** Secure Web3 document signing and verification platform with decentralized IPFS storage.
+* **Español:** Firma digital y verificación de documentos con almacenamiento seguro y descentralizado en IPFS.
 * **Tech Stack:** Next.js, Ethers.js, Solidity, IPFS, Foundry, Tailwind CSS.
 
 ### 2. Gasless DAO Voting DApp
 * **Folder:** [`02-dao-gasless-voting`](file:///home/rene/web3-dev/web3-dapps-portfolio/02-dao-gasless-voting)
-* **English:** A DAO governance system enabling gasless voting via EIP-712 cryptographic signatures and relayers.
-* **Español:** Sistema de gobernanza DAO con votaciones sin gas mediante firmas criptográficas EIP-712 y relayers.
+* **English:** Gasless DAO governance platform utilizing EIP-712 cryptographic signatures and meta-transaction relayers.
+* **Español:** Votación DAO sin gas mediante firmas criptográficas EIP-712 y transacciones delegadas por relayers.
 * **Tech Stack:** Next.js, Ethers.js, EIP-712 Signatures, Relayer Network, Solidity, Hardhat, Wagmi/Viem.
 
 ### 3. Web3 E-Commerce & Stablecoin Payment Gateway
 * **Folder:** [`03-ecommerce`](file:///home/rene/web3-dev/web3-dapps-portfolio/03-ecommerce)
-* **English:** Decentralized e-commerce with a stable EuroToken payment gateway and automated smart contract refunds.
-* **Español:** Tienda virtual con pasarela de pagos descentralizada en EuroToken estable y reembolsos automatizados.
+* **English:** Decentralized e-commerce shop integrated with an automated ERC20 stablecoin payment gateway.
+* **Español:** Comercio descentralizado con pasarela automatizada de pagos mediante tokens estables ERC20.
 * **Tech Stack:** HTML5, Pure Vanilla CSS, JavaScript, Ethers.js, ERC20 (EuroToken), Solidity, Foundry.
 
 ### 4. SwapEscrow — Trustless P2P ERC20 Exchange
 * **Folder:** [`04-escrow`](file:///home/rene/web3-dev/web3-dapps-portfolio/04-escrow)
-* **English:** A secure P2P decentralized escrow contract facilitating trustless ERC20 token swaps with fee sharing.
-* **Español:** Custodia P2P descentralizada para intercambios seguros de tokens ERC20 mediante contratos de garantía.
+* **English:** Trustless peer-to-peer ERC20 token escrow exchange with automated fee-sharing smart contracts.
+* **Español:** Intercambio P2P seguro de tokens ERC20 mediante depósito en garantía descentralizado automatizado.
 * **Tech Stack:** Next.js (App Router), Ethers.js, Framer Motion, Radix UI, Solidity, Foundry.
 
 ---
