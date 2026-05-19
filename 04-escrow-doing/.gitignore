@@ -1,0 +1,45 @@
+# Dependencies
+web/node_modules/
+node_modules/
+
+# Next.js build output
+web/.next/
+web/out/
+
+# Environment variables
+web/.env.local
+web/.env*.local
+.env
+deployment-info.txt
+web-server.log
+
+# Tests and results
+web/test-results/
+web/*.spec.ts
+web/test-current.ts
+
+# Documentation and Specs
+docs/
+openspec/
+design-system/
+assets/
+CLAUDE.md
+DESIGN.md
+PRODUCT.md
+
+# Agent and IDE metadata
+.agents/
+.claude/
+.extract-design-system/
+.playwright-mcp/
+skills-lock.json
+.mcp.json
+
+# Misc
+.DS_Store
+*.tsbuildinfo
+
+# Foundry
+sc/cache/
+sc/out/
+sc/broadcast/

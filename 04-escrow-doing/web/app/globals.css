@@ -1,0 +1,240 @@
+@import "tailwindcss";
+@plugin 'tailwindcss-animate';
+
+/* Dark mode via data-theme attribute (DESIGN.md §10.1) */
+@custom-variant dark (&:where([data-theme="dark"], [data-theme="dark"] *));
+
+@theme inline {
+  --color-background:          var(--background);
+  --color-foreground:          var(--foreground);
+  --color-card:                var(--card);
+  --color-card-foreground:     var(--card-foreground);
+  --color-popover:             var(--popover);
+  --color-popover-foreground:  var(--popover-foreground);
+  --color-primary:             var(--primary);
+  --color-primary-foreground:  var(--primary-foreground);
+  --color-secondary:           var(--secondary);
+  --color-secondary-foreground:var(--secondary-foreground);
+  --color-muted:               var(--muted);
+  --color-muted-foreground:    var(--muted-foreground);
+  --color-accent:              var(--accent);
+  --color-accent-foreground:   var(--accent-foreground);
+  --color-destructive:         var(--destructive);
+  --color-destructive-foreground: var(--destructive-fg);
+  --color-border:              var(--border);
+  --color-input:               var(--input-bg);
+  --color-ring:                var(--brand);
+  --color-success:             var(--ok-fg);
+  --color-success-foreground:  #fff;
+  --color-warning:             var(--warn-fg);
+  --color-warning-foreground:  #fff;
+
+  --radius-lg: 16px;
+  --radius-md: 10px;
+  --radius-sm: 8px;
+  --radius-xs: 6px;
+
+  --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-mono: 'JetBrains Mono', 'Menlo', monospace;
+}
+
+/* ═══════════════════════════════════════════
+   VAULTLINE — SwapEscrow Design Tokens
+   Source of truth: DESIGN.md
+   ═══════════════════════════════════════════ */
+
+:root {
+  /* ── Brand ── */
+  --brand:        #5B52E5;
+  --brand-hover:  #4A42D4;
+  --brand-press:  #3E37BD;
+  --brand-soft:   #EEF0FD;
+
+  /* ── Semantic ── */
+  --ok-bg:    #DCFCE7;  --ok-fg:    #16A34A;
+  --warn-bg:  #FEF3C7;  --warn-fg:  #D97706;
+  --err-bg:   #FEE2E2;  --err-fg:   #DC2626;
+  --info-bg:  #DBEAFE;  --info-fg:  #2563EB;
+
+  /* ── Escrow states ── */
+  --st-active:    #D97706;  --st-active-bg:    #FEF3C7;
+  --st-completed: #16A34A;  --st-completed-bg: #DCFCE7;
+  --st-cancelled: #DC2626;  --st-cancelled-bg: #FEE2E2;
+  --st-expired:   #6B7280;  --st-expired-bg:   #F3F4F8;
+  --st-locked:    #5B52E5;  --st-locked-bg:    #EEF0FD;
+
+  /* ── Chart ramp (purple) ── */
+  --chart-1: #5B52E5;
+  --chart-2: #8B85F0;
+  --chart-3: #C4C1F8;
+  --chart-4: #E2E0FC;
+
+  /* ── Link / accent text ── */
+  --link:        #4F8EF7;
+  --brand-glow:  rgba(91,82,229,.40);
+
+  /* ── Surfaces ── */
+  --background:   #F4F5FA;
+  --card:         #FFFFFF;
+  --card-foreground: #1A1D2E;
+  --popover:      #FFFFFF;
+  --popover-foreground: #1A1D2E;
+  --input-bg:     #F3F4F8;
+  --table-head:   #FAFAFA;
+  --row-hover:    #F9FAFB;
+
+  /* aliases matching design-tokens.css names */
+  --bg:           #F4F5FA;
+  --surface:      #FFFFFF;
+  --surface-2:    #FAFAFA;
+  --surface-3:    #F9FAFB;
+  --surface-sunk: #F3F4F8;
+  --line:         #EBEBF0;
+  --line-soft:    #F3F4F8;
+  --fg:           #1A1D2E;
+
+  /* ── Borders ── */
+  --border:       #EBEBF0;
+  --border-soft:  #F3F4F8;
+
+  /* ── Text ── */
+  --foreground:   #1A1D2E;
+  --fg-2:         #6B7280;
+  --fg-3:         #9CA3AF;
+
+  /* ── Tailwind-required aliases ── */
+  --primary:          #5B52E5;
+  --primary-foreground: #FFFFFF;
+  --secondary:        #F3F4F8;
+  --secondary-foreground: #1A1D2E;
+  --muted:            #F3F4F8;
+  --muted-foreground: #6B7280;
+  --accent:           #EEF0FD;
+  --accent-foreground: #5B52E5;
+  --destructive:      #DC2626;
+  --destructive-fg:   #FFFFFF;
+  --input:            #F3F4F8;
+  --ring:             #5B52E5;
+
+  /* ── Overlay ── */
+  --overlay-bg: rgba(13, 15, 26, 0.55);
+
+  /* ── Shadows ── */
+  --sh-card:   0 2px 12px rgba(0,0,0,.06);
+  --sh-card-h: 0 4px 20px rgba(0,0,0,.10);
+  --sh-pop:    0 4px 20px rgba(0,0,0,.12);
+  --sh-brand:  0 4px 16px rgba(91,82,229,.40);
+
+  /* ── Motion ── */
+  --t-fast: 150ms;
+  --t-base: 200ms;
+  --t-slow: 300ms;
+}
+
+[data-theme="dark"] {
+  --brand-soft:   rgba(91,82,229,.15);
+  --ok-bg:    rgba(34,197,94,.14);   --ok-fg:   #4ADE80;
+  --warn-bg:  rgba(245,158,11,.14);  --warn-fg: #FBB040;
+  --err-bg:   rgba(239,68,68,.14);   --err-fg:  #F87171;
+  --info-bg:  rgba(59,130,246,.14);  --info-fg: #60A5FA;
+
+  --background:   #0D0F1A;
+  --card:         #181B2E;
+  --card-foreground: #F1F2F8;
+  --popover:      #181B2E;
+  --popover-foreground: #F1F2F8;
+  --input-bg:     #222543;
+  --table-head:   #1A1D30;
+  --row-hover:    #1E2135;
+
+  --chart-1: #7B75E8;
+  --chart-2: #5B52E5;
+  --chart-3: #3D3899;
+  --chart-4: #252263;
+
+  --link:        #60A5FA;
+  --brand-glow:  rgba(91,82,229,.50);
+
+  --bg:           #0D0F1A;
+  --surface:      #181B2E;
+  --surface-2:    #1A1D30;
+  --surface-3:    #1E2135;
+  --surface-sunk: #222543;
+  --line:         #252840;
+  --line-soft:    #1E2135;
+  --fg:           #F1F2F8;
+
+  --border:       #252840;
+  --border-soft:  #1E2135;
+
+  --foreground:   #F1F2F8;
+  --fg-2:         #8B90B4;
+  --fg-3:         #555A7A;
+
+  --secondary:        #222543;
+  --secondary-foreground: #F1F2F8;
+  --muted:            #222543;
+  --muted-foreground: #8B90B4;
+  --accent:           rgba(91,82,229,.15);
+  --accent-foreground: #a78bfa;
+
+  --sh-card:  0 2px 16px rgba(0,0,0,.30);
+}
+
+html {
+  scrollbar-gutter: stable;
+}
+
+/* ── Base ── */
+@layer base {
+  * { @apply border-border; }
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: var(--font-sans);
+    font-size: 13px;
+    line-height: 1.5;
+    transition: background var(--t-slow), color var(--t-slow);
+  }
+}
+
+/* ── Accessibility ── */
+button:focus-visible,
+a:focus-visible {
+  outline: 2px solid var(--brand);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+/* ── Animations ── */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes blink {
+  0%,100% { opacity: 1; }
+  50%     { opacity: 0; }
+}
+
+/* ── Dashboard Grid Responsive ── */
+.ops-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+}
+@media (max-width: 768px) {
+  .ops-grid {
+    grid-template-columns: 1fr;
+  }
+}

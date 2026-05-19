@@ -1,0 +1,24 @@
+{
+  "title": "SwapEscrow Architecture",
+  "nodes": [
+    {"id": "creator", "label": "Creator", "subtitle": "Deposits tokenA", "type": "actor", "row": 0},
+    {"id": "owner", "label": "Owner", "subtitle": "Allowlist & pause", "type": "actor", "row": 0},
+    {"id": "executor", "label": "Executor", "subtitle": "Delivers tokenB", "type": "actor", "row": 0},
+    {"id": "escrow", "label": "Escrow", "subtitle": "Custodian", "type": "protocol", "row": 1},
+    {"id": "token_a", "label": "ERC-20 tokenA", "subtitle": "Escrowed token", "type": "external", "row": 2},
+    {"id": "token_b", "label": "ERC-20 tokenB", "subtitle": "Swap token", "type": "external", "row": 2}
+  ],
+  "edges": [
+    {"from": "creator", "to": "escrow", "label": "create / cancel"},
+    {"from": "executor", "to": "escrow", "label": "complete swap"},
+    {"from": "owner", "to": "escrow", "label": "add token / pause"},
+    {"from": "escrow", "to": "creator", "label": "refund tokenA"},
+    {"from": "escrow", "to": "executor", "label": "release tokenA"},
+    {"from": "executor", "to": "creator", "label": "send tokenB direct"},
+    {"from": "escrow", "to": "token_a", "label": "transferFrom / transfer"},
+    {"from": "escrow", "to": "token_b", "label": "transferFrom"}
+  ],
+  "groups": [
+    {"label": "ERC-20 Tokens", "nodes": ["token_a", "token_b"]}
+  ]
+}
