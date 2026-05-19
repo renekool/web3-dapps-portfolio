@@ -1,0 +1,38 @@
+# Dependency directories
+node_modules/
+
+# Next.js build output
+.next/
+out/
+
+# Foundry / Hardhat build output and cache
+cache/
+out/
+broadcast/
+artifacts/
+typechain/
+typechain-types/
+
+# Production/Build outputs
+dist/
+build/
+
+# Environment variables and secrets
+.env
+.env.local
+.env*.local
+.env.production
+.env.development
+*.env
+
+# Operating System Files
+.DS_Store
+Thumbs.db
+
+# Log files
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+*.log
