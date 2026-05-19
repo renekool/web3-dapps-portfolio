@@ -1,0 +1,63 @@
+# Dependencies
+node_modules/
+.pnp
+.pnp.*
+.yarn/*
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/versions
+
+# Foundry / Forge dependencies and build artifacts
+stablecoin/sc/eurotoken/lib/
+stablecoin/sc/eurotoken/out/
+stablecoin/sc/eurotoken/cache/
+stablecoin/sc/eurotoken/broadcast/
+ecommerce/sc/ecommerce-core/lib/
+ecommerce/sc/ecommerce-core/out/
+ecommerce/sc/ecommerce-core/cache/
+ecommerce/sc/ecommerce-core/broadcast/
+
+# Runtime logs
+anvil.log
+ecommerce/**/*.log
+
+# Next.js build output
+.next/
+out/
+build/
+
+# Environment variables
+.env
+.env.*
+!.env.example
+
+# Debug logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+
+# IDE
+.DS_Store
+*.pem
+
+# TypeScript
+*.tsbuildinfo
+next-env.d.ts
+
+# Vercel
+.vercel
+
+# OpenSpec (Private Docs)
+openspec/
+docs/
+ui-test/
+
+# AI Agent & Workspace
+.agent/
+.agents/
+.claude/
+.playwright-mcp/
+CLAUDE.md
+skills-lock.json

@@ -1,0 +1,195 @@
+@import "tailwindcss";
+@plugin "tailwindcss-animate";
+@custom-variant dark (&:where(.dark, .dark *));
+@theme inline {
+  --breakpoint-xs: 480px;
+  --breakpoint-sm: 640px;
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 1024px;
+  --breakpoint-xl: 1280px;
+  --breakpoint-2xl: 1536px;
+  --breakpoint-3xl: 1700px;
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-success: var(--success);
+  --color-success-foreground: var(--success-foreground);
+  --color-warning: var(--warning);
+  --color-warning-foreground: var(--warning-foreground);
+
+  --radius-lg: var(--radius);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-sm: calc(var(--radius) - 4px);
+
+  --font-sans: var(--font-sans), system-ui, sans-serif;
+  --font-body: var(--font-body), sans-serif;
+}
+
+/* ═══════════════════════════════════════════
+   TERRA VIVA — Color System
+   Based on Stitch Design System palette
+   ═══════════════════════════════════════════ */
+
+:root {
+  --radius: 0.75rem;
+
+  /* Font variables — mapped from Next.js font loader */
+  --font-sans: var(--font-plus-jakarta);
+  --font-body: var(--font-inter);
+
+  /* Background / Surface hierarchy */
+  --background: #FBF9F6;
+  --foreground: #1B1C1A;
+
+  /* Cards */
+  --card: #FFFFFF;
+  --card-foreground: #1B1C1A;
+
+  /* Popovers */
+  --popover: #FFFFFF;
+  --popover-foreground: #1B1C1A;
+
+  /* Primary — Terracotta */
+  --primary: #904729;
+  --primary-foreground: #FFFFFF;
+
+  /* Secondary — Sage Green (success) */
+  --secondary: #EFEEEB;
+  --secondary-foreground: #1B1C1A;
+
+  /* Muted */
+  --muted: #F5F3F0;
+  --muted-foreground: #54433D;
+
+  /* Accent */
+  --accent: #EAE8E5;
+  --accent-foreground: #1B1C1A;
+
+  /* Destructive — Error Red */
+  --destructive: #BA1A1A;
+  --destructive-foreground: #FFFFFF;
+
+  /* Success — Sage Green */
+  --success: #466739;
+  --success-foreground: #FFFFFF;
+
+  /* Warning — Orange */
+  --warning: #EA580C;
+  --warning-foreground: #FFFFFF;
+
+  /* Borders */
+  --border: #DAC1B9;
+  --input: #DAC1B9;
+  --ring: #AF5F3E;
+
+  /* Charts */
+  --chart-1: #904729;
+  --chart-2: #466739;
+  --chart-3: #AA2D31;
+  --chart-4: #AF5F3E;
+  --chart-5: #C5EBB1;
+
+  /* Sidebar */
+  --sidebar: #F5F3F0;
+  --sidebar-foreground: #1B1C1A;
+  --sidebar-primary: #904729;
+  --sidebar-primary-foreground: #FFFFFF;
+  --sidebar-accent: #EAE8E5;
+  --sidebar-accent-foreground: #1B1C1A;
+  --sidebar-border: #DAC1B9;
+  --sidebar-ring: #AF5F3E;
+}
+
+.dark {
+  --background: #1B1C1A;
+  --foreground: #E4E2DF;
+  --card: #2A2826;
+  --card-foreground: #E4E2DF;
+  --popover: #2A2826;
+  --popover-foreground: #E4E2DF;
+  --primary: #FFB599;
+  --primary-foreground: #370E00;
+  --secondary: #30312F;
+  --secondary-foreground: #E4E2DF;
+  --muted: #30312F;
+  --muted-foreground: #87736C;
+  --accent: #30312F;
+  --accent-foreground: #E4E2DF;
+  --destructive: #FFDAD6;
+  --destructive-foreground: #410002;
+  --success: #ACD19A;
+  --success-foreground: #042100;
+
+  /* Warning — High contrast orange */
+  --warning: #FFB599; 
+  --warning-foreground: #370E00;
+
+  --border: rgba(255, 255, 255, 0.1);
+  --input: rgba(255, 255, 255, 0.15);
+  --ring: #87736C;
+  --chart-1: #FFB599;
+  --chart-2: #ACD19A;
+  --chart-3: #FFB3AF;
+  --chart-4: #FFDBCE;
+  --chart-5: #C5EBB1;
+  --sidebar: #2A2826;
+  --sidebar-foreground: #E4E2DF;
+  --sidebar-primary: #FFB599;
+  --sidebar-primary-foreground: #370E00;
+  --sidebar-accent: #30312F;
+  --sidebar-accent-foreground: #E4E2DF;
+  --sidebar-border: rgba(255, 255, 255, 0.1);
+  --sidebar-ring: #87736C;
+}
+
+/* ═══════════════════════════════════════════
+   Base Styles
+   ═══════════════════════════════════════════ */
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: var(--font-body);
+  }
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-sans);
+  }
+}
+
+@keyframes dots-bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-4px); }
+}
+
+.animate-dots-bounce {
+  animation: dots-bounce 0.6s infinite ease-in-out;
+}
+
+@keyframes net-pulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(70,103,57,0.4); }
+  50%       { box-shadow: 0 0 0 5px rgba(70,103,57,0); }
+}
+
+.net-pulse-dot {
+  animation: net-pulse 2.2s ease-in-out infinite;
+}

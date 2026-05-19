@@ -1,0 +1,79 @@
+import { BrowserProvider, Contract, type Signer } from "ethers";
+
+const ECOMMERCE_ADDRESS = process.env.NEXT_PUBLIC_ECOMMERCE_CONTRACT_ADDRESS ?? "";
+const EUROTOKEN_ADDRESS = process.env.NEXT_PUBLIC_EUROTOKEN_CONTRACT_ADDRESS ?? "";
+
+// ─── Minimal ABIs (subset of functions used by this app) ─────────────────────
+
+export const ECOMMERCE_ABI = [
+  // Owner
+  "function owner() view returns (address)",
+  // Company
+  "function registerCompany(address companyAddress, string name, string description) returns (uint256)",
+  "function getCompany(uint256 companyId) view returns (tuple(uint256 id, address companyAddress, string name, string description, bool isActive))",
+  "function getCompanyByAddress(address) view returns (tuple(uint256 id, address companyAddress, string name, string description, bool isActive))",
+  "function getCompanyCount() view returns (uint256)",
+  // Product
+  "function addProduct(uint256 companyId, string name, string description, uint256 price, uint256 stock) returns (uint256)",
+  "function updateProduct(uint256 productId, string name, string description, uint256 price)",
+  "function updateStock(uint256 productId, uint256 newStock)",
+  "function getProduct(uint256 productId) view returns (tuple(uint256 id, uint256 companyId, string name, string description, uint256 price, uint256 stock, bool isActive))",
+  "function getCompanyProducts(uint256 companyId) view returns (uint256[])",
+  "function getProductCount() view returns (uint256)",
+  // Invoice
+  "function getInvoice(uint256 invoiceId) view returns (tuple(uint256 id, address customer, uint256 companyId, address merchantAddress, uint256 totalAmount, bool isPaid, string paymentTxHash, uint256 createdAt))",
+  "function getInvoiceItems(uint256 invoiceId) view returns (tuple(uint256 productId, string productName, uint256 quantity, uint256 unitPrice, uint256 subtotal)[])",
+  "function getCustomerInvoices(address customer) view returns (uint256[])",
+  "function getInvoiceCount() view returns (uint256)",
+  // Customer
+  "function getCustomer(address) view returns (tuple(address wallet, uint256 totalPurchases, uint256 totalSpent, bool isRegistered))",
+  // Events
+  "event CompanyRegistered(uint256 indexed companyId, address indexed companyAddress, string name)",
+  "event ProductAdded(uint256 indexed productId, uint256 indexed companyId, string name, uint256 price)",
+  "event InvoiceCreated(uint256 indexed invoiceId, address indexed customer, uint256 companyId, uint256 totalAmount)",
+  "event InvoicePaid(uint256 indexed invoiceId, address indexed customer)",
+];
+
+export const EUROTOKEN_ABI = [
+  "function balanceOf(address) view returns (uint256)",
+  "function decimals() view returns (uint8)",
+];
+
+// ─── Provider / Signer helpers ────────────────────────────────────────────────
+
+export async function getProvider(): Promise<BrowserProvider> {
+  if (!window.ethereum) throw new Error("MetaMask no detectado");
+  return new BrowserProvider(window.ethereum);
+}
+
+export async function getSigner(): Promise<Signer> {
+  const provider = await getProvider();
+  await provider.send("eth_requestAccounts", []);
+  return provider.getSigner();
+}
+
+export async function getEcommerceContract(signerOrProvider?: Signer | BrowserProvider) {
+  if (!signerOrProvider) signerOrProvider = await getProvider();
+  return new Contract(ECOMMERCE_ADDRESS, ECOMMERCE_ABI, signerOrProvider);
+}
+
+export async function getEcommerceContractWithSigner() {
+  const signer = await getSigner();
+  return { contract: new Contract(ECOMMERCE_ADDRESS, ECOMMERCE_ABI, signer), signer };
+}
+
+// ─── Utilities ────────────────────────────────────────────────────────────────
+
+/** Format EURT amount (6 decimals) to display string. */
+export function formatEURT(amount: bigint): string {
+  const whole = amount / 1_000_000n;
+  const frac = amount % 1_000_000n;
+  return `${whole}.${frac.toString().padStart(6, "0").slice(0, 2)} EURT`;
+}
+
+/** Parse display EUR float to EURT bigint (6 decimals). */
+export function parseEURT(eur: number): bigint {
+  return BigInt(Math.round(eur * 1_000_000));
+}
+
+export { ECOMMERCE_ADDRESS, EUROTOKEN_ADDRESS };
